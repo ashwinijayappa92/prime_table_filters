@@ -1,0 +1,126 @@
+[{
+  "id": 1,
+  "name": "Nss",
+  "mrp":123,
+  "unit":"lg",
+  "quantity":1,
+  "category":"agriculture",
+  "subcategory":"fertilizer",
+  "company":"infosys",
+  "brand":"xxx"
+},
+{
+  "id": 2,
+  "name": "Nss",
+  "mrp":123,
+  "unit":"lg",
+  "quantity":1,
+  "category":"agriculture",
+  "subcategory":"fertilizer",
+  "company":"wipro",
+  "brand":"xxx"
+},
+{
+  "id": 3,
+  "name": "Nss",
+  "mrp":123,
+  "unit":"lg",
+  "quantity":1,
+  "category":"agriculture",
+  "subcategory":"fertilizer",
+  "company":"zolo",
+  "brand":"xxx"
+},
+{
+  "id": 4,
+  "name": "Nss",
+  "mrp":123,
+  "unit":"lg",
+  "quantity":1,
+  "category":"agriculture",
+  "subcategory":"fertilizer",
+  "company":"hp",
+  "brand":"xxx"
+},
+{
+  "id": 5,
+  "name": "Nss",
+  "mrp":123,
+  "unit":"lg",
+  "quantity":1,
+  "category":"agriculture",
+  "subcategory":"fertilizer",
+  "company":"reddit",
+  "brand":"xxx"
+},
+{
+  "id": 6,
+  "name": "Nss",
+  "mrp":123,
+  "unit":"lg",
+  "quantity":1,
+  "category":"agriculture",
+  "subcategory":"fertilizer",
+  "company":"bhu",
+  "brand":"xxx"
+},
+{
+  "id": 7,
+  "name": "Nss",
+  "mrp":123,
+  "unit":"lg",
+  "quantity":1,
+  "category":"agriculture",
+  "subcategory":"fertilizer",
+  "company":"ITC",
+  "brand":"xxx"
+},
+{
+  "id": 8,
+  "name": "Nss",
+  "mrp":123,
+  "unit":"lg",
+  "quantity":1,
+  "category":"agriculture",
+  "subcategory":"fertilizer",
+  "company":"datafoundry",
+  "brand":"xxx"
+},
+{
+  "id": 9,
+  "name": "Nss",
+  "mrp":123,
+  "unit":"lg",
+  "quantity":1,
+  "category":"agriculture",
+  "subcategory":"fertilizer",
+  "company":"datafoundry",
+  "brand":"xxx"
+}
+,
+{
+  "id": 10,
+  "name": "Nss",
+  "mrp":123,
+  "unit":"lg",
+  "quantity":1,
+  "category":"agriculture",
+  "subcategory":"fertilizer",
+  "company":"datafoundry",
+  "brand":"xxx"
+},
+{
+  "id": 24,
+  "name": "Nss",
+  "mrp":123,
+  "unit":"lg",
+  "quantity":1,
+  "category":"agriculture",
+  "subcategory":"fertilizer",
+  "company":"datafoundry",
+  "brand":"xxx"
+}
+
+
+
+]

@@ -1,0 +1,167 @@
+<div fxLayout="column" fxLayoutGap="32px" style="height:140vh">
+    <mat-card>
+        <div fxLayout="row wrap">
+            <div fxFlex="30" fxFlex.lt-sm="50" fxFlex.lt-md="33" fxLayout="column">
+                <a class="navbar-brand font-bold" routerLink="login">
+                    <img src="../assets/logo.PNG">
+                </a>
+            </div>
+        </div>
+        <div fxLayout="row wrap ">
+            <div fxFlex fxFlex.lt-sm="100" fxLayout="column">
+                <a routerLink="#">
+                    <img src="../assets/img.PNG" width="100%" [ngClass]="'imgOptions'">
+                </a>
+            </div>
+        </div>
+        <div fxLayout="row wrap" layout-padding layout-margin flex>
+            <div fxFlex="100" fxFlex.lt-sm="100" fxLayout="column">
+                <p>
+                    Dear PAMF member please enter carpal tunnel access code printed in you letter *.
+                </p>
+            </div>
+            <div fxFlex="24" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.lt-md="50" fxLayout="column">
+                <input type="text" pInputText />
+            </div>
+
+            <div fxFlex="100" fxFlex.lt-sm="100" fxLayout="column">
+                <p>
+                    Live life to its fullest with help from providers who understand your unique health needs. From small questions to big decisions,
+                    <br> primary care doctors and other health professionals in the Sutter Health network help you every step
+                    of the way. We’re here
+                    <br> when you need us, where you need us.
+                </p>
+            </div>
+            <div fxFlex="24" fxFlex.lt-sm="100" fxFlex.sm="50" fxFlex.lt-md="50" fxLayout="column">
+                <input type="text" pInputText />
+            </div>
+            <div fxFlex="100">
+                <p>
+                    Click here to continue to questionaries.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="row wrap" fxLayoutAlign="end end " fxLayoutGap="20px">
+            <div fxFlex="10%" fxFlex.lt-sm="50" fxFlex.lt-md="33" fxLayout="column" style="padding: 5px;">
+                <!-- <button  layout-padding layout-margin flex fxLayoutAlign="space-between start" fxFlex="1 1 500px" mat-raised-button (click)="questionaries()" color="primary">Continue</button> -->
+                <button pButton type="button" (click)="handleClick($event)" label="Continue" class="ui-button-rounded"></button>
+            </div>
+        </div>
+    </mat-card>
+</div>
+
+
+<div fxLayout="column"  fxLayoutGap="32px" fxLayoutGap.md="32px" style="height:200vh">
+    <mat-card>
+        <div fxLayout="row wrap">
+            <div fxFlex="30" fxFlex.lt-sm="50" fxFlex.lt-md="33" fxLayout="column">
+                <a class="navbar-brand font-bold" routerLink="login">
+                    <img src="../assets/logo.PNG">
+                </a>
+            </div>
+        </div>
+        <div fxLayout="row wrap " class="pb-2">
+            <div fxFlex="100" fxFlex.lt-sm="100" fxLayout="column">
+                <a routerLink="#">
+                    <img src="../assets/img.PNG" width="100%" [ngClass]="'imgOptions'">
+                </a>
+            </div>
+            <div fxFlex="100" fxFlex.lt-sm="100" fxLayout="column">
+                <p>
+                    Dear PAMF member please enter carpal tunnel access code printed in you letter *.
+                </p>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap" fxLayoutGap="25px grid">
+            <div fxFlex="30" fxFlex.lt-sm="100" fxFlex.sm="100" fxLayout="column">
+                <a routerLink="login">
+                    <img src="../assets/health2.jpg" width="70%" height="200vh">
+                </a>
+            </div>
+
+            <div fxFlex="70" fxFlex.lt-sm="100" fxLayoutAlign="center center" fxFlex.lt-md="40" fxFlex.md="60" fxFlex.sm="100" fxLayout="column">
+                <p>
+                    Interested in becoming a Sutter patient? Here’s what you need to know about health plans, choosing a doctor and how to get
+                    started today Interested in becoming a Sutter patient? Here’s what you need to know about health plans,
+                    choosing a doctor and how to get started today
+                </p>
+                <p>
+                    Interested in becoming a Sutter patient? Here’s what you need to know about health plans, choosing a doctor and how to get
+                    started today Interested in becoming a Sutter patient? Here’s what you need to know about health plans,
+                    choosing a doctor and how to get started today
+                </p>
+            </div>
+        </div>
+
+        <div fxLayout="row wrap" fxLayoutGap="25px grid">
+            <div fxFlex="100" fxFlex.lt-sm="100">
+                <p>
+                    Live life to its fullest with help from providers who understand your unique health needs. From small questions to big decisions,
+                    <br> primary care doctors and other health professionals in the Sutter Health network help you every step
+                    of the way. We’re here
+                    <br> when you need us, where you need us.
+                </p>
+            </div>
+            <div fxFlex="100">
+                <p>
+                    Click here to continue to questionaries.
+                </p>
+            </div>
+        </div>
+        <div class="row wrap" fxLayoutAlign="end end " fxLayoutGap="20px">
+            <div fxFlex="10%" fxFlex.lt-sm="50" fxFlex.lt-md="33" fxLayout="column" style="padding: 5px;">
+                <button pButton type="button" (click)="handleClick($event)" label="Continue" class="ui-button-rounded"></button>
+            </div>
+        </div>
+    </mat-card>
+</div>
+
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+     <mat-card>
+  <div class="item item-1" fxFlex="15%">
+        <p>
+                Interested in becoming a Sutter patient? Here’s what you need to know about health plans, choosing a doctor and how to get
+                started today Interested in becoming a Sutter patient? Here’s what you need to know about health plans,
+                choosing a doctor and how to get started today
+            </p>
+  </div>
+  <div class="item item-2" fxFlex="20%" fxFlexOrder="3"> <p>
+        Interested in becoming a Sutter patient? Here’s what you need to know about health plans, choosing a doctor and how to get
+        started today Interested in becoming a Sutter patient? Here’s what you need to know about health plans,
+        choosing a doctor and how to get started today
+    </p></div>
+  <div class="item item-3" fxFlex> <p>
+        Interested in becoming a Sutter patient? Here’s what you need to know about health plans, choosing a doctor and how to get
+        started today Interested in becoming a Sutter patient? Here’s what you need to know about health plans,
+        choosing a doctor and how to get started today
+    </p></div>
+    </mat-card>
+</div>
+
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+     <mat-card>
+  <div class="item item-4" fxFlex fxFlexOffset="50px"  fxFlexOffset.xs="0"> <p>
+        Interested in becoming a Sutter patient? Here’s what you need to know about health plans, choosing a doctor and how to get
+        started today Interested in becoming a Sutter patient? Here’s what you need to know about health plans,
+        choosing a doctor and how to get started today
+    </p></div>
+  <div class="item item-5" fxFlex="200px"> <p>
+        Interested in becoming a Sutter patient? Here’s what you need to know about health plans, choosing a doctor and how to get
+        started today Interested in becoming a Sutter patient? Here’s what you need to know about health plans,
+        choosing a doctor and how to get started today
+    </p></div>
+    </mat-card>
+</div>

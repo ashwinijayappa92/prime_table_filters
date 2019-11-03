@@ -1,0 +1,196 @@
+<p-table [columns]="cols" #dt [value]="datasource"   dataKey="id" selectionMode="single"
+ [(selection)]="selectedCar" (onRowSelect)="onRowSelect($event)" stateStorage="local" stateKey="statedemo-local"
+    [paginator]="true" [rows]="10" [reorderableColumns]="true"   [resizableColumns]="true">
+    <ng-template pTemplate="caption">
+            <div style="text-align: right">        
+                <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+            </div>
+        </ng-template>
+
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+                <th style="width: 3em"></th>
+            <th *ngFor="let col of columns;">
+               {{col.header}}
+            </th>
+        </tr>
+
+        <tr>
+            <th></th>
+            <th *ngFor="let col of columns" [ngSwitch]="col.field" class="ui-fluid">
+                <input  *ngSwitchCase="'name'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                <input     *ngSwitchCase="'category'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                <input    *ngSwitchCase="'subcategory'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                <div *ngSwitchCase="'year'" >
+                    Value
+                    < {{yearFilter}} <i class="fa fa-close" (click)="yearFilter=null;dt.filter(null, col.field, col.filterMatchMode)"
+                        style="cursor:pointer" *ngIf="yearFilter"></i>
+                        <p-slider [style]="{'width':'100%','margin-top':'8px'}" [(ngModel)]="yearFilter" [min]="1970" [max]="2010" (onChange)="onYearChange($event, dt)"></p-slider>
+                </div>
+                <p-dropdown *ngSwitchCase="'brand'" [options]="brands" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
+                <p-multiSelect *ngSwitchCase="'company'" [options]="companies" defaultLabel="All Companies" (onChange)="dt.filter($event.value, col.field, 'in')"></p-multiSelect>
+                <input size="20"  [ngClass]="old-car" *ngSwitchCase="'unit'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+            </th>
+        </tr>
+
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData  let-expanded="expanded" let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+                <td>
+                        <a href="#" [pRowToggler]="rowData">
+                            <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+                        </a>
+                    </td>
+            <td *ngFor="let col of columns">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="summary" let-rowData>
+        <div style="text-align:left">
+            <button type="button" pButton icon="fa-plus" (click)="showDialogToAdd()" label="Add"></button>
+        </div>
+       
+    </ng-template>
+
+    <ng-template pTemplate="rowexpansion" let-rowData let-columns="columns">
+            <tr>
+                <td [attr.colspan]="columns.length + 1">
+                    <div class="ui-g ui-fluid" style="font-size:16px;padding:20px">
+                        <div class="ui-g-12 ui-md-3" style="text-align:center">
+                            <img [attr.alt]="rowData.brand" src="assets/showcase/images/demo/car/{{rowData.brand}}.png">
+                        </div>
+                        <div class="ui-g-12 ui-md-9">
+                            <div class="ui-g">
+                                <div class="ui-g-12">
+                                    <b>Vin:</b> {{rowData.id}}
+                                </div>
+                                <div class="ui-g-12">
+                                    <b>Year:</b> {{rowData.name}}
+                                </div>
+                                <div class="ui-g-12">
+                                    <b>Brand:</b> {{rowData.company}}
+                                </div>
+                                <div class="ui-g-12">
+                                    <b>Color:</b> {{rowData.brand}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+</p-table>
+
+<p-dialog header="Car Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="300">
+    <div class="ui-g ui-fluid" *ngIf="car">
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="vin">id</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="id" [(ngModel)]="car.id" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="year">name</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="name" [(ngModel)]="car.name" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="brand">Brand</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="brand" [(ngModel)]="car.brand" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="color">company</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="company" [(ngModel)]="car.company" />
+            </div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix" appendTo="body">
+            <button type="button" pButton icon="fa-close" (click)="deleteRow()" label="Delete"></button>
+            <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+
+<h3 class="first">Toggleable Row Groups</h3>
+<p-table [value]="datasource" dataKey="brand">
+        <ng-template pTemplate="caption">
+                <div style="text-align: right">        
+                    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                    <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+                </div>
+            </ng-template>
+        <ng-template pTemplate="caption">
+                <div class="ui-helper-clearfix">
+                    <button type="button" pButton icon="fa-file-o" iconPos="left" label="All Data" (click)="dt.exportCSV()" style="float:left"></button>
+                    <button type="button" pButton icon="fa-file" iconPos="left" label="Selection Only" (click)="dt.exportCSV({selectionOnly:true})" style="float:right"></button>
+                </div>
+            </ng-template>
+    <ng-template pTemplate="header">
+            <tr>
+                    <th *ngFor="let col of columns">
+                        {{col.header}}
+                    </th>
+                </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-rowIndex="rowIndex" let-expanded="expanded" let-columns="columns">
+        <tr class="ui-widget-header" *ngIf="rowGroupMetadata[rowData.brand].index === rowIndex">
+            <td colspan="8">
+                <a href="#" [pRowToggler]="rowData">
+                    <i [ngClass]="expanded ? 'fa fa-fw fa-chevron-circle-down' : 'fa fa-fw fa-chevron-circle-right'"></i>
+                    <span>{{rowData.brand}}</span>
+                </a>
+            </td>
+          
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-rowData let-rowIndex="rowIndex">
+        <tr>
+            <td>{{rowData.name}}</td>
+            <td>{{rowData.id}}</td>
+            <td>{{rowData.category}}</td>
+            <td>{{rowData.subcategory}}</td>
+            <td>{{rowData.company}}</td>
+            <td>{{rowData.brand}}</td>
+            <td>{{rowData.mrp}}</td>
+            <td>{{rowData.quantity}}</td>
+
+            <!-- <td *ngFor="let col of columns">
+                    {{rowData[col.field]}}
+                </td> -->
+        </tr>
+    </ng-template>
+  
+</p-table>
+    
+<!-- <p-multiSelect [options]="companies" [(ngModel)]="selectedCars2" [panelStyle]="{minWidth:'12em'}" (onChange)="checkIfResp($event.value)"> -->
+        <!-- <ng-template let-car let-i="index"  pTemplate="item">
+          <p-radioButton name="group1" value="{{car.label}}" [(ngModel)]="respCar" (click)="respToggle(car)"></p-radioButton>
+          <div style="font-size:14px;float:right;margin-top:4px">{{car.label}}</div>
+        </ng-template> -->
+    <!-- </p-multiSelect> -->
+
+    <p-dropdown [options]="companies" [(ngModel)]="selectedCars2" (onChange)="checkIfResp($event.value)"
+  [styleClass]="dropdown-width" placeholder="Select a Country">
+  <ng-template let-car let-i="index"  pTemplate="item">
+        <p-radioButton name="group1" value="{{car.label}}" [(ngModel)]="respCar" (click)="respToggle(car)"></p-radioButton>
+        <div style="font-size:14px;float:right;margin-top:4px">{{car.label}}</div>
+      </ng-template>
+</p-dropdown>
+    <p>Selected Cars: {{selectedCars2}}</p>
+    <p>Responsible Car: {{respCar}}</p>

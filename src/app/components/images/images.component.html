@@ -1,0 +1,60 @@
+<div fxFlex fxLayout="column" fxLayoutGap="10px"  style="height: 100vh" >
+  <div    fxLayout="row wrap"  >
+    <div fxFlex="20%">
+  <button mat-raised-button (click)="search()"  color="primary"> Add More</button>
+    </div>
+    
+    <div  fxFlexOffset.xs="15%" fxFlex="20%"  fxFlexOffset="60%" >
+            <mat-form-field appearance="outline">
+        <mat-label>Search products</mat-label>
+        <input matInput placeholder="Placeholder" [(ngModel)]="query" (ngModelChange)="searchItem($event)">
+        <mat-icon matSuffix>search</mat-icon>
+        <mat-hint></mat-hint>
+      </mat-form-field>
+      </div>
+  </div>
+  <div fxLayout="row wrap">
+<!-- <div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+  <div class="item item-4" fxFlex fxFlexOffset="50px"  fxFlexOffset.xs="0">
+    <mat-form-field>
+  <mat-label></mat-label>
+  <input placeholder="Just a placeholder">
+</mat-form-field>
+  </div>
+  <div class="item item-5" fxFlex="20"><mat-form-field>
+  <mat-label></mat-label>
+  <input placeholder="Just a placeholder">
+</mat-form-field></div>
+</div> -->
+
+  <!-- loop over the cardList and show the cards -->
+    <div
+      *ngFor="let card of cardListnew "
+      fxFlex="25"
+      fxFlex.md="33"
+      fxFlex.sm="50"
+      fxFlex.xs="100"
+      fxLayout="column"
+      style="padding: 5px;"
+    >
+      <!-- cards here -->
+      <mat-card class="mat-elevation-z1">
+        <img mat-card-image [src]="card.imgSrc" />
+        <mat-card-title> {{ card.title }} </mat-card-title>
+        <mat-card-content> {{ card.description }} </mat-card-content>
+        <mat-card-footer>
+          <button fxFlex mat-flat-button color="primary">
+            Do Something Button
+          </button>
+        </mat-card-footer>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+

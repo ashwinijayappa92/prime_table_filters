@@ -1,0 +1,66 @@
+<div fxFlex fxLayout="column" class="flex-flow-container" fxLayoutAlign="center center ">
+        <!-- <div fxFlex fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center"> -->
+        <h3>Welcome to filter</h3>
+        <form [formGroup]="filterForm">
+    <div fxLayout="row wrap" fxLayout.lt-sm="column" fxLayoutGap="20px" >
+     
+        <div fxFlex="30%" fxFlex.sm="100%">
+            <!-- {{sexOptionsCAT | json}} -->
+                <p-dropdown [options]="sexOptionsCAT" formControlName="sex" [(ngModel)]="selectedCity2"></p-dropdown>
+                <!-- <p-button label="Clear"  *ngIf="filterForm && !!filterForm.get('sex').value" (onClick)="filterForm.get('status').setValue('')"></p-button> -->
+         </div>   
+
+         <div fxFlex="30%"  fxFlex.sm="100%">
+                <p-dropdown [options]="sexOptionsProg"  formControlName="status" [(ngModel)]="selectedCity1"></p-dropdown>
+                <!-- <p-button label="Clear" *ngIf="filterForm && !!filterForm.get('status').value" (onClick)="filterForm.get('status').setValue('')"></p-button> -->
+            </div> 
+
+            <div fxFlex="30%" fxFlex.sm="100%" >
+                    <p-dropdown [options]="sexOptionsCategory" formControlName="category"  [(ngModel)]="selectedCity3"></p-dropdown>
+                    <!-- <p-button label="Clear" *ngIf="filterForm && !!filterForm.get('category').value" (onClick)="filterForm.get('category').setValue('')"></p-button> -->
+              </div> 
+             
+            
+     </div>   
+     </form>
+
+     <div fxLayout="row wrap" fxLayoutAlign="flex-start">
+            <div fxFlex="90%" fxFlex.xs="100%">
+                    <p-table [value]="filteredStudents" [columns]="cols">
+                            <ng-template pTemplate="header" let-columns>
+                                    <tr>
+                                        <th *ngFor="let col of columns">
+                                            {{col.header}}
+                                        </th>
+                                    </tr>
+                                </ng-template>
+                            <!-- <ng-template pTemplate="header">
+                                <tr>
+                                    <th>Vin</th>
+                                    <th>Year</th>
+                                    <th>Brand</th>
+                                    <th>Color</th>
+                                </tr>
+                            </ng-template> -->
+                          
+                            <ng-template pTemplate="body" let-rowData let-prd>
+                                    <tr>
+                                            <td>{{prd.StudentId}}</td>
+                                            <td>{{prd.StudentName}}</td>
+                                            <td>{{prd.sex}}</td>
+                                            <td>
+                                                <ol *ngFor="let pg of filteredStudents.programs">
+                                                    <li>
+                                                            {{pg.programCategory}}
+                                                     </li>   
+                                                 </ol>   
+                                            </td>
+                                        <!-- <td *ngFor="let col of columns">
+                                            {{rowData[col.field]}}
+                                        </td> -->
+                                    </tr>
+                                </ng-template>
+                        </p-table>
+            </div>
+     </div>    
+</div>

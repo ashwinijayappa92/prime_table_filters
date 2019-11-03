@@ -1,0 +1,10 @@
+<div class="flex-container" fxFlex>
+    <form [formGroup]="countryForm" (submit)="onFormSubmit()">
+        name:<input type="text" formControlName="name">
+        capital:<input type="text" formControlName="capital">
+        currency:<input type="text" formControlName="currency">
+        <p> <button type="submit">Add</button> </p>
+     </form>   
+ </div>   
+
+ 
