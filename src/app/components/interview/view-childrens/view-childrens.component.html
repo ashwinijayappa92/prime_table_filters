@@ -1,0 +1,31 @@
+<h1>View Childrens</h1>
+<h4 #ashu>
+  HIII
+</h4>
+<p #para>
+  We can use the @ViewChildren decorator to grab elements from the host view.
+</p>
+
+<code>
+viewChild - you have to pass second arguments when your working with latest angular version.
+If you set static false, the component ALWAYS gets initialized after the view initialization in time for the ngAfterViewInit/ngAfterContentInit callback functions.
+ static: true
+If you set static true, the initialization will take place at the view initialization at ngOnInit
+By default you can use static: false . If you are creating a dynamic view and want to use the template reference variable, then you should use.
+
+ static: true  needs to be set when you want to access the ViewChild in ngOnInit.
+
+ static: false  can only be accessed in ngAfterViewInit. This is also what you want to go for when you have a structural directive (i.e. *ngIf) on your element in your template.
+</code>
+
+<app-alert >
+  <p #insideNgContent>you have to pass second arguments when your working</p>
+</app-alert>
+<app-alert type="info">
+  <app-ngcontent></app-ngcontent>
+  <app-ngcontent title="red"></app-ngcontent>
+  <app-ngcontent title="green"></app-ngcontent>
+</app-alert>
+<app-alert type="primary">
+</app-alert>
+

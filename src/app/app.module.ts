@@ -17,6 +17,13 @@ import {fakeBackendProvider } from 'src/app/helpers';
 import {CustoPreloadService} from './services/custo-preload.service';
 import { PreloadAllModules } from "@angular/router";
 import {PageNotFoundComponent} from './page-not-found.component';
+
+
+
+// import { ArticleComponent } from './components/article/article.component';
+// import { ArticalDetailsComponent } from './components/article/artical-details/artical-details.component';
+// import { ArticalUpdateComponent } from './components/article/artical-update/artical-update.component';
+// import { ArticalAddComponent } from './components/article/artical-add/artical-add.component';
 // import { SurveyComponent } from './components/survey/survey.component';
 
 
@@ -30,7 +37,7 @@ import {PageNotFoundComponent} from './page-not-found.component';
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, SharedModule, RoutingModule,
     HttpClientModule,
     BrowserAnimationsModule],
-  declarations: [AppComponent, LoginComponent,PageNotFoundComponent],
+  declarations: [AppComponent, LoginComponent, PageNotFoundComponent],
   bootstrap: [AppComponent],
   providers: [ProductService, ErrorService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -143,7 +143,8 @@ export class SurveyComponent implements OnInit {
    // Survey.surveyStrings.loadingSurvey = "Please wait. Your survey is loading…";
       var survey = new Survey.Model(surveyJSON);
       survey.onComplete.add(sendDataToServer);
-    Survey.SurveyNG.render("surveyElement", { model: survey });
+      Survey.SurveyNG.render("surveyElement", { model: survey });
+
     //Survey.surveyStrings.savingData = "Please wait. We are validating and saving your reponse";
   }
 

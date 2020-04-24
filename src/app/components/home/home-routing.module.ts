@@ -17,9 +17,12 @@ import { LandingComponent } from '../../components/landing/landing.component';
 import {CanloadGuardService} from '../../services/canload-guard.service';
 import {CanDeactivateGuard} from '../../services/can-deactivate-guard.service';
 import {CountryEditCanDeactivateGuard} from '../../services/country-edit-can-deactivate-guard.service';
+import { ViewChildrensComponent } from '../../components/interview/view-childrens/view-childrens.component';
+import { RendererComponent } from '../../components/interview/renderer/renderer.component';
+import { NgTemplateComponent } from '../../components/interview/ng-template.component';
+import { AgGridComponent } from '../../components/ag-grid/ag-grid.component';
 
-
-const routes:Routes = [
+const routes: Routes = [
  {path:'',component:HomeComponent,children:[
   {path:'emp',component:EmployeeComponent},
    {path:'products',component:ProductComponent,canActivate: [AuthGuard],canLoad:[CanloadGuardService]},
@@ -39,21 +42,30 @@ const routes:Routes = [
       path:'person' ,loadChildren:() =>import ('../person/person.module').then (m =>m.PersonModule)
     },
     {
+      path:'article' ,loadChildren:() =>import ('../article/article.module').then (m =>m.ArticleModule)
+    },
+    {
       path:'dashboard',loadChildren:'../dashboard/dashboard.module#DashboardModule', canLoad:[CanloadGuardService],
-      
+
     },
     {path:'address',loadChildren:'../../address/address.module#AddressModule', canLoad:[CanloadGuardService],
-    
     },
-  
+
+    {path: 'viewChildren', component: ViewChildrensComponent
+  },
+  {path: 'renderer', component: RendererComponent},
+  {path: 'ngTemplate', component: NgTemplateComponent},
+  {path: 'ag-grid', component: AgGridComponent},
+
+
  ]} ,
 
- 
+
 ]
 @NgModule({
   imports:[RouterModule.forChild(routes)],
   exports:[RouterModule],
-  providers: [ 
+  providers: [
     CanDeactivateGuard,
     CountryEditCanDeactivateGuard,
 ],

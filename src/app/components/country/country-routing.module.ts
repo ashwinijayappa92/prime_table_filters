@@ -15,7 +15,7 @@ const countryRoutes: Routes = [
 	     {
 		     path: 'add',
 			   component: AddCountryComponent,
-			//    canDeactivate: [CanDeactivateGuard]
+			    canDeactivate: [CanDeactivateGuard]
 		   },
 	     {
 	       path: 'list',

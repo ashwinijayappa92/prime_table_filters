@@ -40,6 +40,7 @@ constructor(private fb:FormBuilder,private route:ActivatedRoute,
         if(!this.isAdding && this.countryForm.dirty){
             return  this.dialogService.confirm('Discard unsaved Country?');
         }
+        return true;
     }
 
 }

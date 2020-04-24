@@ -1,20 +1,37 @@
-<div fxFlex fxLayout="column" fxLayoutGap="10px"  style="height: 100vh" >
-  <div    fxLayout="row wrap"  >
+<div fxFlex fxLayout="column" fxLayoutGap="10px" style="height: 200vh">
+  <div fxLayout="row wrap">
     <div fxFlex="20%">
-  <button mat-raised-button (click)="search()"  color="primary"> Add More</button>
+      <button mat-raised-button (click)="search()" color="primary"> Add More</button>
     </div>
-    
-    <div  fxFlexOffset.xs="15%" fxFlex="20%"  fxFlexOffset="60%" >
-            <mat-form-field appearance="outline">
+
+
+
+    <div fxFlexOffset.xs="15%" fxFlex="20%" fxFlexOffset="60%">
+      <mat-form-field appearance="outline">
         <mat-label>Search products</mat-label>
         <input matInput placeholder="Placeholder" [(ngModel)]="query" (ngModelChange)="searchItem($event)">
         <mat-icon matSuffix>search</mat-icon>
         <mat-hint></mat-hint>
       </mat-form-field>
-      </div>
+    </div>
   </div>
+
   <div fxLayout="row wrap">
-<!-- <div class="container"
+    <div fxFlex="10%" fxFlexOffset="5%" fxFlexOffset.xs="20%" *ngFor="let x of buttons">
+      <button mat-raised-button [ngClass]="{'active': x.display}" (click)="x.display = !x.display;Buttonsarray(x.name)" color="primary">{{x.name}}</button>
+      <div style="background:#fff" *ngIf="x.display" class="dropdown-content">
+        <mat-radio-group matNativeControl aria-labelledby="example-radio-group-label" class="example-radio-group">
+          <mat-radio-button class="example-radio-button" ngDefaultControl [(ngModel)]="season.value" (change)="oncliking(season.value)"
+            style="padding:6px;display:block" *ngFor="let season of x.seasons" [value]="season.value">
+            {{season.key}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="row wrap">
+    <!-- <div class="container"
      fxLayout
      fxLayout.xs="column"
      fxLayoutAlign="center"
@@ -32,16 +49,8 @@
 </mat-form-field></div>
 </div> -->
 
-  <!-- loop over the cardList and show the cards -->
-    <div
-      *ngFor="let card of cardListnew "
-      fxFlex="25"
-      fxFlex.md="33"
-      fxFlex.sm="50"
-      fxFlex.xs="100"
-      fxLayout="column"
-      style="padding: 5px;"
-    >
+    <!-- loop over the cardList and show the cards -->
+    <div *ngFor="let card of cardListnew " fxFlex="25" fxFlex.md="33" fxFlex.sm="50" fxFlex.xs="100" fxLayout="column" style="padding: 5px;">
       <!-- cards here -->
       <mat-card class="mat-elevation-z1">
         <img mat-card-image [src]="card.imgSrc" />
@@ -55,6 +64,6 @@
       </mat-card>
     </div>
   </div>
+
+
 </div>
-
-
